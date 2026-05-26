@@ -9,6 +9,7 @@ class HomeController  extends BaseController{
     public function index(): void {
         $categoriesWithPosts = Post::getLatestThreePostsPerCategory();
 
-      
+        $this->smarty->assign('categories', $categoriesWithPosts);
+        $this->smarty->display('home.tpl');
     }
 }

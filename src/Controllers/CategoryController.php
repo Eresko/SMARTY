@@ -17,12 +17,31 @@ class CategoryController extends BaseController{
             return;
         }
 
+        $allowedSorts = [
+            'date' => 'created_at',
+            'views' => 'views_count'
+        ];
+        $sortKey = $_GET['sort'] ?? 'date';
+        $sortField = $allowedSorts[$sortKey] ?? 'created_at';
+
+        $perPage = 6;
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        if ($currentPage < 1) $currentPage = 1;
 
 
+        $totalPosts = Post::countByCategoryId($categoryId);
+        $totalPages = ceil($totalPosts / $perPage);
 
-        $posts = Post::getByCategoryId($categoryId);
+
+        $posts = Post::getByCategoryId($categoryId, $sortField, $currentPage, $perPage);
 
 
-      
+        $this->smarty->assign('category', $category);
+        $this->smarty->assign('posts', $posts);
+        $this->smarty->assign('sortKey', $sortKey);
+        $this->smarty->assign('currentPage', $currentPage);
+        $this->smarty->assign('totalPages', $totalPages);
+
+        $this->smarty->display('category.tpl');
     }
 }
