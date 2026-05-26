@@ -1,0 +1,158 @@
+@import "variables";
+
+body {
+  font-family: $font-stack;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background: $light-bg;
+  color: $dark-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  background: $dark-color;
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 30px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.category-block {
+  background: $card-bg;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.post-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 4px;
+  background: #fafafa;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background: $primary-color;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+
+  &.btn-success {
+    background: $success-color;
+    &:hover {
+      background: darken($success-color, 10%);
+    }
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+
+  a, span {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    text-decoration: none;
+    color: $dark-color;
+  }
+
+  .active {
+    background: $primary-color;
+    color: #fff;
+    border-color: $primary-color;
+  }
+}
+
+.sorting {
+  margin-bottom: 20px;
+
+  a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: $primary-color;
+
+    &.active {
+      font-weight: bold;
+      color: $dark-color;
+      pointer-events: none;
+    }
+  }
+}
+.category-action {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.post-detail {
+  background: $card-bg;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.post-meta {
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.post-main-img {
+  max-height: 400px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.post-lead {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+.post-text {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.similar-posts-block {
+  margin-top: 50px;
+}
+
+.similar-title {
+  margin-bottom: 20px;
+}
+
+.standard-card {
+  background: $card-bg;
+}
